@@ -1,11 +1,14 @@
 import './App.css';
 import React from 'react';
-import axios from 'axios';
-import Categories from './pages/categories';
+// import axios from 'axios';
+import Categories from './pages/categories.js';
 
 function App() {
   return (
-    <Categories/>
+    <>
+    <h1>Tuoteryhmät</h1>
+    <Categories />
+    </>
   );
 }
 
