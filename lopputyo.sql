@@ -43,7 +43,7 @@ client_id INTEGER,
 ); 
 
 CREATE TABLE order_row 
-(order_id INTEGER PRIMARY KEY, 
+(order_id INTEGER, 
 product_id INTEGER, 
 order_date DATE, 
 order_price DECIMAL (10, 2), 

@@ -28,7 +28,7 @@ try{
     $date = date('Y-m-d');
     foreach ($cart as $product) {
         $sql = "INSERT INTO order_row (order_id, product_id, order_date) VALUES ('
-        $order_id', '$product->product_id', '$date', $product->product_price)";
+        $order_id', '$product->product_id', '$date')";
         executeInsert($db, $sql);
     }
 

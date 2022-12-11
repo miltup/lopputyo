@@ -24,9 +24,9 @@ function Order({cart, removeFromCart}) {
     axios.post(url + 'order/order.php', data
     ).then(res => {
       console.log(res);
-      alert('Kiitos tiedoista!');
+      alert('Kiitos tilauksestasi!');
     }).catch(error => {
-      alert(error);
+      alert(error.response === undefined ? error : error.response.data.error);
     });
   }
 
@@ -41,7 +41,7 @@ function Order({cart, removeFromCart}) {
               <tr key={uuid()}>
                 <td>{product.product_name}</td>
                 <td>{product.product_price} €</td>
-                <td><a href="#" onClick={() => removeFromCart(product)}>Tyhjennä ostoskori</a></td>
+                <td><a href="#" onClick={() => removeFromCart(product)}>Poista tuote</a></td>
               </tr>
             )
             })}
