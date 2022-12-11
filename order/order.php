@@ -8,33 +8,33 @@ $fullname = filter_var($input->fullname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $street = filter_var($input->street, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $zipcode = intval(filter_var($input->zipcode, FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 $city = filter_var($input->city, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$phone = intval(filter_var($input->phone, FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+$phone = filter_var($input->phone, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+$cart = $input->cart;
 
 try{
     $db = createSqliteConnection('../lopputyo.db');
 
     //Asiakkaan lisäys
     $sql = "INSERT INTO client (client_name, street, zipcode, city, phone, email) VALUES 
-    ('$fullname','$street', $zipcode,'$city', $phone,'$email')";
-
+    ('$fullname','$street', $zipcode, '$city', '$phone','$email')";
     $client_id = executeInsert($db, $sql);
     
     // Tilauksen lisäys tietokantaan
-    $sql = "INSERT INTO order_row (client_id) VALUES ($client_id)";
+    $sql = "INSERT INTO orders (client_id) VALUES ($client_id)";
     $order_id = executeInsert($db, $sql);
 
-    // Tilauksen tuotteiden lisäys
+    // Tilauksen tietojen ja tuotteiden lisäys
+    $date = date('Y-m-d');
     foreach ($cart as $product) {
-        $sql = "INSERT INTO orders (order_id, product_id) VALUES ("
-        . $order_id . "," . $product->id . ")";
+        $sql = "INSERT INTO order_row (order_id, product_id, order_date) VALUES ('
+        $order_id', '$product->product_id', '$date', $product->product_price)";
         executeInsert($db, $sql);
     }
 
-    $data = array('id' => $client_id, 'name' => $fullname, 'street' => $street, 'zipcode' => $zipcode, 'city' => $city, 'phone' => $phone, 'email' => $email);
     header('HTTP/1.1 200 OK');
-    echo json_encode($data);
+    $data = array('id' => $client_id, 'name' => $fullname, 'street' => $street, 'zipcode' => $zipcode, 'city' => $city, 'phone' => $phone, 'email' => $email);
+    print json_encode($data);
 } catch (PDOException $pdoex) {
     returnError($pdoex);
 }

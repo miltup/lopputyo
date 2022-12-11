@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Categories from './pages/categories.js';
 import Products from './pages/products.js';
-import Client from './pages/client.js';
+//import Client from './pages/client.js';
 import Cart from './pages/cart.js';
 import Order from './pages/order.js';
 
@@ -27,7 +27,7 @@ function App() {
      }
 
    function removeFromCart(product) {
-      const itemsWithoutRemoved = cart.filter(item => item.id !== product.id);
+      const itemsWithoutRemoved = cart.filter(item => item.product_id !== product.product_id);
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
@@ -51,8 +51,6 @@ function App() {
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart}/>} />
         </Routes>
     </div>
-    <h2>Asiakas</h2>
-    <Client />
     </>
   );
 }
