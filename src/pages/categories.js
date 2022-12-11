@@ -8,12 +8,10 @@ function Categories() {
     const URL = 'http://localhost:3000/lopputyo/';
 
     useEffect(() => {
-        console.log(URL);
         axios.get(URL + 'products/getcategories.php')
             .then((response) => {
                 const json = response.data;
                 setCategories(json);
-                console.log(json);
             }).catch (error => {
                 alert(error);
             })
