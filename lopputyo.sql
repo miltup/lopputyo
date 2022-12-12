@@ -58,9 +58,9 @@ insert into order_row (order_id, client_id) values (1, 1);
 
 CREATE TABLE user_info 
 (user_id INTEGER PRIMARY KEY, 
-user_name VARCHAR(50) NOT NULL, 
+username VARCHAR(50) NOT NULL, 
 user_email VARCHAR(50), 
 user_password VARCHAR(50) 
 );
 
-insert into user_info (user_name, user_email, user_password) values ('11testit', 'testi@testi.t', 'xxyy11');
+insert into user_info (username, user_email, user_password) values ('11testit', 'testi@testi.t', 'xxyy11');
