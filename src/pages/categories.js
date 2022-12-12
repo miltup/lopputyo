@@ -13,7 +13,7 @@ function Categories() {
                 const json = response.data;
                 setCategories(json);
             }).catch (error => {
-                alert(error);
+                alert(error.response === undefined ? error : error.response.data.error);
             })
     }, [])
 return (

@@ -17,7 +17,7 @@ function Products({url, addToCart}) {
                 setCategoryName(json.category);
                 setProducts(json.products);
             }).catch (error => {
-                alert(error);
+                alert(error.response === undefined ? error : error.response.data.error);
             })
     }, [params, url])
 return (

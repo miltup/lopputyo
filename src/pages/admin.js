@@ -13,11 +13,11 @@ function Admin() {
         }
         axios.post(URL + 'admin/addcategories.php', data)
         .then(response => {
-          console.log(response);
-          alert('Tuoteryhmä lisätty.')
+            console.log(response);
+            alert('Tuoteryhmä lisätty.')
         })
         .catch(error => {
-          console.log(error);
+            alert(error.response === undefined ? error : error.response.data.error);
         })
       }
 
