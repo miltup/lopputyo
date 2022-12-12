@@ -8,6 +8,7 @@ import Products from './pages/products.js';
 //import Client from './pages/client.js';
 import Cart from './pages/cart.js';
 import Order from './pages/order.js';
+import Admin from './pages/admin.js';
 
 const url ='http://localhost:3000/lopputyo/';
 
@@ -50,6 +51,10 @@ function App() {
         <Routes>
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart}/>} />
         </Routes>
+    </div>
+    <div>
+      <h3>Admin-käyttäjän paneeli:</h3>
+      <Admin />
     </div>
     </>
   );
