@@ -25,6 +25,7 @@ function Order({cart, removeFromCart}) {
     ).then(res => {
       console.log(res);
       alert('Kiitos tilauksestasi!');
+      localStorage.clear();
     }).catch(error => {
       alert(error.response === undefined ? error : error.response.data.error);
     });
@@ -45,10 +46,14 @@ function Order({cart, removeFromCart}) {
               </tr>
             )
             })}
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
           <tr key={uuid()}>
             <td></td>
-            <td>{sum.toFixed(2)} €</td>
             <td></td>
+            <td>Summa:</td>
+            <td>{sum.toFixed(2)} €</td>
           </tr>
         </tbody>
       </table>

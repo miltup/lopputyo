@@ -28,6 +28,7 @@ return (
             {products.map(product => 
                 <li key={product.product_id}>
                 {product.product_name}
+                <br></br>
                 <button type='button' onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
                </li>
             )}
