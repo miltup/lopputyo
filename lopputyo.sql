@@ -64,3 +64,12 @@ user_password VARCHAR(50)
 
 insert into user_info (username, user_email, user_password) values ('11testit', 'testi@testi.t', 'xxyy11');
 
+DROP TABLE user_info;
+
+CREATE TABLE user_info 
+(username VARCHAR(50) NOT NULL,  
+password VARCHAR(50) 
+);
+
+insert into user_info (username, password) values ('testikäyttäjä', 'testiss');
+insert into user_info (username, password) values ('testi1', 'testi1');

@@ -8,7 +8,7 @@ function insertUser ($username, $password) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO user_info (username, user_password) VALUES (?, ?)";
+    $sql = "INSERT INTO user_info (username, password) VALUES (?, ?)";
     $statement = $db->prepare($sql);
     $statement->execute(array($username, $password));
 }
@@ -18,7 +18,7 @@ function insertUser ($username, $password) {
 function checkUser($username, $password) {
     $db = createSqliteConnection('../lopputyo.db');
 
-    $sql = "SELECT user_password FROM user_info WHERE username=?";
+    $sql = "SELECT password FROM user_info WHERE username = ?";
     $statement = $db->prepare($sql);
     $statement->execute(array($username));
 

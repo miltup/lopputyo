@@ -12,7 +12,7 @@ if(isset($_SESSION['username'])){
 
 if(!isset($_POST['username']) || !isset($_POST['password'])){
     http_response_code('401');
-    echo "Käyttäjää ei ole määritetty. Lisää käyttäjänimi ja salasana";
+    echo "Käyttäjää ei ole määritetty. Lisää toimiva käyttäjänimi ja salasana";
     return;
 }
 

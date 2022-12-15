@@ -24,11 +24,13 @@ function Admin() {
     return (
     <>
     <div className="container">
+        <h5>Tuoteryhmän lisääminen</h5>
         <form onSubmit={addCategory}>
             <div>
-            <label>Tuoteryhmän nimi</label>
-            <input type="text" placeholder="Lisää tuoteryhmän nimi" name="category_name" />
+            <label>Tuoteryhmän nimi: </label>
+            <input type="text" placeholder="tuoteryhmä" name="category_name" />
             </div>
+            <br></br>
             <button variant="primary" type="submit">Lisää tuoteryhmä</button>
         </form>
     </div>

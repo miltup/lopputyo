@@ -8,7 +8,7 @@ import Products from './pages/products.js';
 //import Client from './pages/client.js';
 import Cart from './pages/cart.js';
 import Order from './pages/order.js';
-import Admin from './pages/admin.js';
+import AdminLogin from './pages/login.js';
 
 const url ='http://localhost:3000/lopputyo/';
 
@@ -53,8 +53,8 @@ function App() {
         </Routes>
     </div>
     <div>
-      <h3>Admin-käyttäjän paneeli:</h3>
-      <Admin />
+      <h3>Kirjaudu sisään:</h3>
+      <AdminLogin />
     </div>
     </>
   );
