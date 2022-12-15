@@ -33,7 +33,7 @@ function Order({cart, removeFromCart}) {
 
   return (
     <>
-      <h3 className="header">Ostoskorin tuotteet:</h3>
+      <h3 className="header">Valitut tuotteet:</h3>
       <table className="table">
         <tbody>
           {cart.map(product => {
@@ -59,7 +59,7 @@ function Order({cart, removeFromCart}) {
       </table>
       {cart.length > 0 &&
     <>
-      <h5>Lisää tietosi, ole hyvä:</h5>
+      <h3>Lisää tietosi, ole hyvä:</h3>
       <div className="container">
           <form onSubmit={client}>
           <div className="field">
@@ -87,7 +87,7 @@ function Order({cart, removeFromCart}) {
               <input type="text" placeholder="name@example.com" name="email"/>
           </div>
           <button variant="primary" type="submit">
-              Syötä tiedot
+              Tilaa
           </button>
         </form>
       </div>

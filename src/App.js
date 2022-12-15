@@ -42,18 +42,17 @@ function App() {
           <Route path="/products/:categoryId" element={<Products url={url} addToCart={addToCart}/>} />
         </Routes>
     </div>
-    <h2>Ostoskori</h2>
     <div>
       <Cart cart={cart} />
     </div>
-    <h3>Tilaus</h3>
+    <h2>Ostoskori</h2>
     <div className='container'>
         <Routes>
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart}/>} />
         </Routes>
     </div>
     <div>
-      <h3>Kirjaudu sisään:</h3>
+      <h3>Pääkäyttäjä, kirjaudu sisään:</h3>
       <AdminLogin />
     </div>
     </>

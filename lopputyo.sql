@@ -1,11 +1,20 @@
+
+DROP TABLE user_info;
+DROP TABLE order_row;
+DROP TABLE orders;
+DROP TABLE client;
+DROP TABLE product;
+DROP TABLE category;
+
+
 CREATE TABLE category 
 (category_id INTEGER PRIMARY KEY, 
 category_name VARCHAR(50) NOT NULL 
 ); 
 
-insert into category (category_name) VALUES ('Model');
-insert into category (category_name) values ('Color');
-insert into category (category_name) values ('Interior');
+insert into category (category_name) VALUES ('Malli');
+insert into category (category_name) values ('Väri');
+insert into category (category_name) values ('Verhoilu');
 
 CREATE TABLE product 
 (product_id INTEGER PRIMARY KEY, 
@@ -18,11 +27,11 @@ category_id INTEGER,
 insert into product (product_name, product_price, category_id) values ('Basic', 50000, 1);
 insert into product (product_name, product_price, category_id) values ('Sport', 78000, 1);
 insert into product (product_name, product_price, category_id) values ('Offroad', 66000, 1);
-insert into product (product_name, product_price, category_id) values ('Black', 1000, 2);
-insert into product (product_name, product_price, category_id) values ('White', 0, 2);
-insert into product (product_name, product_price, category_id) values ('Red', 1500, 2);
-insert into product (product_name, product_price, category_id) values ('Leather', 1400, 3);
-insert into product (product_name, product_price, category_id) values ('Textile', 0, 3);
+insert into product (product_name, product_price, category_id) values ('Musta', 1000, 2);
+insert into product (product_name, product_price, category_id) values ('Valkoinen', 0, 2);
+insert into product (product_name, product_price, category_id) values ('Punainen', 1500, 2);
+insert into product (product_name, product_price, category_id) values ('Nahka', 1400, 3);
+insert into product (product_name, product_price, category_id) values ('Tekstiili', 0, 3);
 
 CREATE TABLE client 
 (client_id INTEGER PRIMARY KEY, 
@@ -56,20 +65,9 @@ insert into order_row (order_id, product_id, order_date) values (1, 1, '2022-10-
 
 
 CREATE TABLE user_info 
-(user_id INTEGER PRIMARY KEY, 
-username VARCHAR(50) NOT NULL, 
-user_email VARCHAR(50), 
-user_password VARCHAR(50) 
-);
-
-insert into user_info (username, user_email, user_password) values ('11testit', 'testi@testi.t', 'xxyy11');
-
-DROP TABLE user_info;
-
-CREATE TABLE user_info 
-(username VARCHAR(50) NOT NULL,  
+(username VARCHAR(50) NOT NULL, 
 password VARCHAR(50) 
 );
 
-insert into user_info (username, password) values ('testikäyttäjä', 'testiss');
 insert into user_info (username, password) values ('testi1', 'testi1');
+insert into user_info (username, password) values ('testi2', 'testi2');
